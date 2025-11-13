@@ -27,3 +27,6 @@ La placa es compatible con los shields diseñados para el Arduino Uno R3, lo que
 Nuevo conector USB-C:
 El puerto USB-C reemplaza el antiguo USB tipo B, ofreciendo una conexión más moderna y resistente. 
 
+
+https://docs.arduino.cc/hardware/uno-r4-wifi/ 
+https://docs.arduino.cc/tutorials/uno-r4-wifi/cheat-sheet/ https://docs.arduino.cc/tutorials/uno-r4-wifi/led-matrix/
