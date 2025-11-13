@@ -1,19 +1,29 @@
 # Tarjerta Arduino R4 con Wifi
-Desde el lanzamiento del 2023, la tarjeta de Arduino R4 tiene mejoras que no tenian las versiones anteriores.
 
 ![arduino r4](https://github.com/user-attachments/assets/d39a095f-f1df-4fdc-9f00-d9669de79b78)
 
 La placa Arduino Uno R4 WiFi es la última incorporación a la familia Arduino, ofreciendo un conjunto de características avanzadas mientras mantiene la robustez y versatilidad que esperas. Esta placa trae un aumento significativo en la potencia de procesamiento, gracias a su microcontrolador Arm® Cortex®-M4 de 32 bits, y preserva la compatibilidad con la serie UNO.
 
-Las caracteristicas sobresalientes son:
+Características
+Esta nueva versión de Arduino Uno R4 ofrece características notables que no existían en las versiones posteriores a las versiones precedentes, incluyendo conectividad Wi-Fi y Bluetooth en la misma placa gracias a un módulo ESP32-S3 integrado, anteriormente teníamos dos módulos extras. Otra funcionalidad nueva, aunque pareciera solo algo estético, una matriz LED de 12x8 para visualizaciones graficas de manera amigable. Un conector Qwiic facilitar la conexión de sensores I2C y soporte para alimentación de hasta 24V, además de compatibilidad con el estándar HID para actuar como teclado o ratón. 
+Con ello, se tiene una expansión y características destacadas del Arduino Uno R4 WiFi:
+Conectividad inalámbrica:
+El módulo ESP32-S3 permite la conexión Wi-Fi y Bluetooth, abriendo un abanico de posibilidades para proyectos IoT y comunicación remota. 
 
-Procesamiento Mejorado: Transición de un microcontrolador AVR de 8 bits a uno Arm® Cortex®-M4 de 32 bits.
-
-Actualización de Memoria: Eleva tus proyectos con 32KB de SRAM y 256KB de memoria flash NAND.
-
-Conectividad Avanzada: Experimenta una conectividad fluida con USB-C y Wi-Fi.
-
-Rendimiento Mejorado: Logra más con un procesamiento más rápido y una mayor capacidad de memoria.
-
-Fuente de Alimentación Flexible: Alimenta tu placa con hasta 24V para mayores posibilidades de proyecto.
+Matriz LED (la versión con Wifi):
+Una matriz de 12x8 LEDs rojos integrados facilita la creación de interfaces visuales y la visualización de datos de sensores sin necesidad de componentes externos adicionales. 
+Conector Qwiic:
+El conector I2C Qwiic permite la conexión rápida y sencilla de sensores, pantallas y otros módulos I2C sin necesidad de soldar, simplificando el proceso de expansión. 
+Amplio rango de voltaje:
+El Uno R4 WiFi soporta voltajes de entrada de hasta 24V, lo que lo hace adecuado para entornos industriales o proyectos que requieran mayor potencia. 
+Compatibilidad con HID:
+La placa puede emular un ratón o teclado USB, lo que permite interactuar con computadoras de manera sencilla. 
+Diagnóstico de errores:
+Cuenta con un mecanismo de detección de errores en tiempo real que ayuda a identificar y solucionar problemas en el código. 
+Memoria y velocidad:
+El microcontrolador principal, Renesas RA4M1, ofrece una velocidad de reloj de 48 MHz y 256 kB de memoria flash y 32 kB de SRAM, mientras que el ESP32-S3 tiene 384 kB de ROM y 512 kB de SRAM. 
+Compatibilidad con shields:
+La placa es compatible con los shields diseñados para el Arduino Uno R3, lo que facilita la migración de proyectos existentes. 
+Nuevo conector USB-C:
+El puerto USB-C reemplaza el antiguo USB tipo B, ofreciendo una conexión más moderna y resistente. 
 
