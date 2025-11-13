@@ -28,5 +28,9 @@ Nuevo conector USB-C:
 El puerto USB-C reemplaza el antiguo USB tipo B, ofreciendo una conexión más moderna y resistente. 
 
 
+
+Enlaces utiles:
+
 https://docs.arduino.cc/hardware/uno-r4-wifi/ 
+
 https://docs.arduino.cc/tutorials/uno-r4-wifi/cheat-sheet/ https://docs.arduino.cc/tutorials/uno-r4-wifi/led-matrix/
