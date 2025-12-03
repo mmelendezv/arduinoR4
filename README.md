@@ -2,7 +2,7 @@
 
 ![arduino r4](https://github.com/user-attachments/assets/d39a095f-f1df-4fdc-9f00-d9669de79b78)
 
-La placa Arduino Uno R4 WiFi es la última incorporación a la familia Arduino, ofreciendo un conjunto de características avanzadas mientras mantiene la robustez y versatilidad que esperas. Esta placa trae un aumento significativo en la potencia de procesamiento, gracias a su microcontrolador Arm® Cortex®-M4 de 32 bits, y preserva la compatibilidad con la serie UNO.
+La placa Arduino Uno R4 WiFi es la última incorporación a la familia Arduino, ofreciendo un conjunto de características avanzadas mientras mantiene la robustez y versatilidad que esperas. Esta placa trae un aumento significativo en la potencia de procesamiento gracias a su microcontrolador Arm® Cortex®-M4 de 32 bits, y preserva la compatibilidad con la serie UNO.
 
 Características
 Esta nueva versión de Arduino Uno R4 ofrece características notables que no existían en las versiones posteriores a las versiones precedentes, incluyendo conectividad Wi-Fi y Bluetooth en la misma placa gracias a un módulo ESP32-S3 integrado, anteriormente teníamos dos módulos extras. Otra funcionalidad nueva, aunque pareciera solo algo estético, una matriz LED de 12x8 para visualizaciones graficas de manera amigable. Un conector Qwiic facilitar la conexión de sensores I2C y soporte para alimentación de hasta 24V, además de compatibilidad con el estándar HID para actuar como teclado o ratón. 
@@ -33,4 +33,6 @@ Enlaces utiles:
 
 https://docs.arduino.cc/hardware/uno-r4-wifi/ 
 
-https://docs.arduino.cc/tutorials/uno-r4-wifi/cheat-sheet/ https://docs.arduino.cc/tutorials/uno-r4-wifi/led-matrix/
+https://docs.arduino.cc/tutorials/uno-r4-wifi/cheat-sheet/
+
+https://docs.arduino.cc/tutorials/uno-r4-wifi/led-matrix/
