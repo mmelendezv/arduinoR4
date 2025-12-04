@@ -23,7 +23,7 @@ La placa es compatible con los shields diseñados para el Arduino Uno R3, lo que
 Nuevo conector USB-C:
 El puerto USB-C reemplaza el antiguo USB tipo B, ofreciendo una conexión más moderna y resistente. 
 
-Capitulo 1. Iniciar con Arduino R4.
+# Capitulo 1. Inicio en Arduino R4.
 El primer punto con la tarjeta es instalar el software el IDE de Arduino, se recomienda usar una vesion reciente. Al momento es tiene la version 2.3.6:
 <img width="863" height="582" alt="AcercaDe" src="https://github.com/user-attachments/assets/ab6ff512-6a90-4902-9a30-5873e09a9a49" />
 
