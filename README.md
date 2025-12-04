@@ -28,7 +28,7 @@ El primer punto con la tarjeta es instalar el software el IDE de Arduino, se rec
 
 <img width="863" height="582" alt="AcercaDe" src="https://github.com/user-attachments/assets/ab6ff512-6a90-4902-9a30-5873e09a9a49" />
 
-https://www.arduino.cc/en/software/?_gl=1*q0jgae*_up*MQ..*_ga*MTg3MjMzODk3MS4xNzY0ODI1MjI4*_ga_NEXN8H46L5*czE3NjQ4MjUyMjckbzEkZzAkdDE3NjQ4MjUyMjckajYwJGwwJGgxMDE4MzY2Njc0
+https://www.arduino.cc/en/software
 
 Enlaces utiles:
 
