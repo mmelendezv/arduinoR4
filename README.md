@@ -40,42 +40,157 @@ Posteriormente sera necesario instalar las librerias correspondientes a los elem
 
 ```
 /* ejemplo 01
-#include "Arduino_LED_Matrix.h"
-#include "01.h"
-
-ArduinoLEDMatrix matrix;
-
-void setup() {
-	Serial.begin(115200);
-	matrix.loadSequence(animation);
-	matrix.begin();
-	matrix.play(true);
-}
-
-// the loop function runs over and over again until power down or reset
-void loop() {
-
-}*/
-
+/// LINK: https://www.reddit.com/r/arduino/comments/14l7ru1/breakout_experimenting_sans_paddle_so_far_on_uno/
 #include "Arduino_LED_Matrix.h"
 
-ArduinoLEDMatrix matrix;
+#define MAX_Y 8
+#define MAX_X 12
 
-void setup() {
-	Serial.begin(115200);
-	matrix.begin();
-}
+void displayGrid();
 
-uint8_t frame[8][12] = {
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+uint8_t grid[MAX_Y][MAX_X] = {
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 };
+
+ArduinoLEDMatrix matrix;
+
+#define   DELAY         3
+#define   MAX_POINTS    1
+#define   BLOCK_ROWS    3
+
+struct point_t {
+    double x, y, dx, dy;
+
+    point_t() :
+        x(0.0), y(0.0), dx(0.0), dy(0.0) {}
+
+    point_t(int _x, int _y, int _dx, int _dy) : 
+        x(_x), y(_y), dx(_dx), dy(_dy) {}
+
+    point_t(double _x, double _y, double _dx, double _dy) :
+        x(_x), y(_y), dx(_dx), dy(_dy) {}
+
+    void set() {
+        grid[(int) y][(int) x] = 1;
+    }
+
+    void reset() {
+        grid[(int) y][(int) x] = 0;
+    }
+
+    void update(point_t *blocks, int &num_blocks) {
+        int ox = 0;
+        int oy = 0;
+        int pdx = static_cast<int>(x + dx);
+        int mdx = static_cast<int>(x - dx);
+        int pdy = static_cast<int>(y + dy);
+        int mdy = static_cast<int>(y - dy);
+        int i = 0;
+
+        for (i=0; i < num_blocks; i++) {
+            ox = static_cast<int>(blocks[i].x);
+            oy = static_cast<int>(blocks[i].y);
+
+            if ((pdx == ox || mdx == ox) && (pdy == oy || mdy == oy)) {
+                break;
+            }
+        }
+
+        if (i < num_blocks) {
+            // we hit a block
+            dx *= -1.0;
+            dy *= -1.0;
+
+            grid[(int) oy][(int) ox] = 0;
+            blocks[i] = blocks[num_blocks - 1];
+            num_blocks--;
+        }
+        else {
+            if (pdx < 0 || mdx < 0 || pdx >= MAX_X || mdx >= MAX_X) 
+            { dx *= -1.0; }
+            if (pdy < 0 || mdy < 0 || pdy >= MAX_Y || mdy >= MAX_Y) 
+            { dy *= -1.0; }
+        }
+
+        x += dx;
+        y += dy;
+    }
+};
+
+point_t points[MAX_POINTS];
+int num_blocks = BLOCK_ROWS * 12;
+point_t blocks[BLOCK_ROWS * 12];
+uint32_t start = 0;
+
+void reset_blocks() {
+    for (int y = 0; y < BLOCK_ROWS; y++) {
+        for (int x = 0; x < 12; x++) {
+            blocks[y * MAX_X + x].x = x;
+            blocks[y * MAX_X + x].y = y + 1;
+        }
+    }
+    num_blocks = BLOCK_ROWS * 12;
+    start = millis();
+}
+
+void reset_ball() {
+    int const min_num = 2;
+    int const max_num = 6;
+
+    auto lambda = []() -> double { 
+        return (1.0 / (double) random(min_num, max_num)); 
+    };
+
+    for (point_t &pt : points) {
+        pt.x = random(0, MAX_X);
+        pt.y = random(0, MAX_Y);
+        pt.dx = random(2) ? -lambda() : +lambda();
+        pt.dy = random(2) ? -lambda() : +lambda();
+    }
+}
+
+void setup() {
+    delay(1000);
+    Serial.begin(115200);
+    delay(1000);
+    
+    Serial.println("Arduino LED Matrix");
+    matrix.begin();
+
+    pinMode(A0, INPUT);
+    randomSeed(analogRead(A0));
+
+    reset_ball();
+    reset_blocks();
+}
+
+void loop() {
+    for (int i = 0; i < num_blocks; i++) {
+        blocks[i].set();
+    }
+
+    for (point_t &pt : points) { pt.set(); }
+    displayGrid();
+
+    delay(DELAY);
+
+    for (point_t &pt : points) { pt.reset(); }
+    displayGrid();
+
+    for (point_t &pt : points) { pt.update(blocks, num_blocks); }
+
+    if (0 == num_blocks || millis() - start >= 60000LU) {
+        reset_ball();
+        reset_blocks();
+    }
+}
 
 void leftEye() {
 	//Left eye
