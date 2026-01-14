@@ -28,6 +28,8 @@ El primer punto con la tarjeta es instalar el software el IDE de Arduino, se rec
 
 <img width="863" height="582" alt="AcercaDe" src="https://github.com/user-attachments/assets/ab6ff512-6a90-4902-9a30-5873e09a9a49" />
 
+
+Aqui esta la version actual de Arduino...
 https://www.arduino.cc/en/software
 
 Una vez instalado el software, hay que configurar dos puntos importantes; la placa, en este la placa Arduino UNO R4 WiFi y el puerto conectado en la PC como se muestran en las imagenes.
