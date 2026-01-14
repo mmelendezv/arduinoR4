@@ -241,7 +241,7 @@ void loop() {
 	delay(1000);
 }
 ```
-![20260113_102048](https://github.com/user-attachments/assets/4eaa8a6b-9b0a-4d61-8be4-b9e54e70ca12)
+<img width="1181" height="839" alt="r4" src="https://github.com/user-attachments/assets/3bf201fd-326a-400b-b473-9bac24cf24be" />
 
 
 Enlaces utiles:
