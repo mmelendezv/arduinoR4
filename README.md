@@ -36,13 +36,9 @@ Una vez instalado el software, hay que configurar dos puntos importantes; la pla
 <img width="954" height="584" alt="boardR4" src="https://github.com/user-attachments/assets/67fcb500-4443-41da-9292-bc6d15f82d3f" />
 <img width="948" height="583" alt="PuertoR4" src="https://github.com/user-attachments/assets/2f6de195-a4ea-4b75-a365-3ccc469463d6" />
 
-Posteriormente sera necesario instalar las librerias correspondientes a los elementos a conectar en el circuito de la tarjeta, para ello en el menu indicado encontrar el dispositivo para instalar:
-<img width="891" height="501" alt="lib01" src="https://github.com/user-attachments/assets/65a7da02-5637-4138-a778-51c96717b68a" />
-<img width="891" height="502" alt="lib02" src="https://github.com/user-attachments/assets/38e297ab-03e1-4f32-b659-7fc339ff6011" />
-
+Posteriormente sera necesario instalar las librerias correspondientes a los elementos a usar. En este ejemplo solo se requiere la placa R4 que cuenta con una patalla de matrix de LED (hay que instalar la libreria "Arduino_LED_Matrix.h")
 ```
-/* ejemplo 01
-/// LINK: https://www.reddit.com/r/arduino/comments/14l7ru1/breakout_experimenting_sans_paddle_so_far_on_uno/
+/* Ejemplo con pantalla de matrix de LED
 #include "Arduino_LED_Matrix.h"
 
 #define MAX_Y 8
