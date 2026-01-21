@@ -38,7 +38,7 @@ Una vez instalado el software, hay que configurar dos puntos importantes; la pla
 
 Posteriormente sera necesario instalar las librerias correspondientes a los elementos a usar. En este ejemplo solo se requiere la placa R4 que cuenta con una patalla de matrix de LED (hay que instalar la libreria "Arduino_LED_Matrix.h")
 ```
-/* Ejemplo con pantalla de matrix de LED
+/* Ejemplo con pantalla de matrix de LED*/
 #include "Arduino_LED_Matrix.h"
 
 #define MAX_Y 8
