@@ -38,7 +38,6 @@ Una vez instalado el software, hay que configurar dos puntos importantes; la pla
 
 Posteriormente sera necesario instalar las librerias correspondientes a los elementos a usar. En este ejemplo solo se requiere la placa R4 que cuenta con una patalla de matrix de LED (hay que instalar la libreria "Arduino_LED_Matrix.h")
 ```
-/* Ejemplo con pantalla de matrix de LED*/
 #include "Arduino_LED_Matrix.h"
 
 #define MAX_Y 8
@@ -190,55 +189,8 @@ void loop() {
     }
 }
 
-void leftEye() {
-	//Left eye
-	frame[1][3] = 1;
-	frame[1][4] = 1;
-	frame[2][3] = 1;
-	frame[2][4] = 1;
-}
-
-void wink() {
-	//Wink with the left eye
-	frame[1][3] = 0;
-	frame[1][4] = 0;
-	frame[2][3] = 1;
-	frame[2][4] = 1;
-}
-
-void rightEye() {
-	//Right eye
-	frame[1][8] = 1;
-	frame[1][9] = 1;
-	frame[2][8] = 1;
-	frame[2][9] = 1;
-}
-
-void mouth() {
-	//Mouth
-	frame[5][3] = 1;
-	frame[5][9] = 1;
-	frame[6][3] = 1;
-	frame[6][4] = 1;
-	frame[6][5] = 1;
-	frame[6][6] = 1;
-	frame[6][7] = 1;
-	frame[6][8] = 1;
-	frame[6][9] = 1;
-}
-
-void loop() {
-	leftEye();
-	rightEye();
-	mouth();
-
-	matrix.renderBitmap(frame, 8, 12);
-
-	delay(1000);
-	wink();
-
-	matrix.renderBitmap(frame, 8, 12);
-	delay(1000);
+void displayGrid() {
+  matrix.renderBitmap(grid, 8, 12);
 }
 ```
 <img width="1181" height="839" alt="r4" src="https://github.com/user-attachments/assets/3bf201fd-326a-400b-b473-9bac24cf24be" />
