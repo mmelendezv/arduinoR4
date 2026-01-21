@@ -36,7 +36,9 @@ Una vez instalado el software, hay que configurar dos puntos importantes; la pla
 <img width="954" height="584" alt="boardR4" src="https://github.com/user-attachments/assets/67fcb500-4443-41da-9292-bc6d15f82d3f" />
 <img width="948" height="583" alt="PuertoR4" src="https://github.com/user-attachments/assets/2f6de195-a4ea-4b75-a365-3ccc469463d6" />
 
-Posteriormente sera necesario instalar las librerias correspondientes a los elementos a usar. En este ejemplo solo se requiere la placa R4 que cuenta con una patalla de matrix de LED (hay que instalar la libreria "Arduino_LED_Matrix.h")
+Posteriormente sera necesario instalar las librerias correspondientes a los elementos a usar. 
+
+En este ejemplo solo se requiere la placa R4 que cuenta con una patalla de matrix de LED (hay que instalar la libreria "Arduino_LED_Matrix.h")
 ```
 #include "Arduino_LED_Matrix.h"
 
