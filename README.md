@@ -38,21 +38,23 @@ Una vez instalado el software, hay que configurar dos puntos importantes; la pla
 
 Posteriormente sera necesario instalar las librerias correspondientes a los elementos a usar. 
 
-En este ejemplo solo se requiere la placa R4 que cuenta con una patalla de matrix de LED (hay que instalar la libreria "Arduino_LED_Matrix.h")
+En este ejemplo solo se requiere la placa R4 que cuenta con una pantalla de matrix de LED (hay que instalar la libreria "Arduino_LED_Matrix.h")
 ```
+//Demo de animaciones para probar tarteta Arduino R4 
 #include "Arduino_LED_Matrix.h"
 
 #define MAX_Y 8
 #define MAX_X 12
 
 void displayGrid();
+void Demo();
 
 uint8_t grid[MAX_Y][MAX_X] = {
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},  
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -186,6 +188,36 @@ void loop() {
     for (point_t &pt : points) { pt.update(blocks, num_blocks); }
 
     if (0 == num_blocks || millis() - start >= 60000LU) {
+
+       matrix.loadFrame (LEDMATRIX_BLUETOOTH);
+       delay (1500);
+       matrix.loadFrame (LEDMATRIX_BOOTLOADER_ON);
+       delay (1500);
+       matrix.loadFrame (LEDMATRIX_CHIP);
+       delay (1500);
+       matrix.loadFrame (LEDMATRIX_CLOUD_WIFI);
+       delay (1500);
+       matrix.loadFrame (LEDMATRIX_DANGER);
+       delay (1500);
+       matrix.loadFrame (LEDMATRIX_EMOJI_BASIC);
+       delay (1500);
+       matrix.loadFrame (LEDMATRIX_EMOJI_HAPPY);
+       delay (1500);
+       matrix.loadFrame (LEDMATRIX_EMOJI_SAD);
+       delay (1500);
+        matrix.loadFrame (LEDMATRIX_HEART_BIG);
+        delay (1500);
+        matrix.loadFrame (LEDMATRIX_HEART_SMALL);
+        delay (1500);
+        matrix.loadFrame (LEDMATRIX_LIKE);
+        delay (1500);
+        matrix.loadFrame (LEDMATRIX_MUSIC_NOTE);
+        delay (1500);    
+        matrix.loadFrame (LEDMATRIX_RESISTOR);
+        delay (1500);    
+        matrix.loadFrame (LEDMATRIX_UNO);
+        delay (1500);
+
         reset_ball();
         reset_blocks();
     }
